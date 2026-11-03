@@ -1,65 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kambingan Eatery · Our Story</title>
-  
+  <title>Kambingan Eatery · About</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@900&family=Pacifico&display=swap" rel="stylesheet">
-  
   <script>
     tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            montserrat: ['Montserrat', 'sans-serif'],
-            pacifico: ['Pacifico', 'cursive'],
-          }
-        }
-      }
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], montserrat: ['Montserrat', 'sans-serif'] } } }
     }
   </script>
-  
-  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@900&display=swap" rel="stylesheet">
 </head>
-<body class="bg-white flex flex-col min-h-screen font-sans">
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300 font-sans">
 
-  <main class="flex-grow py-16 px-6">
-    <div class="max-w-6xl mx-auto">
-      
-      <h2 class="text-4xl font-montserrat font-black text-[#1b7a3d] uppercase tracking-wide text-center mb-12">Our Story</h2>
-      
-      <div class="flex flex-col lg:flex-row items-center gap-12">
-        
-        <!-- Text Content -->
-        <div class="flex-1 space-y-6 text-gray-600 text-lg leading-relaxed">
-          <p>Kambingan Eatery started as a small family-run stall along the highway, serving hearty goat dishes to locals and travelers alike. Over the years, it has grown into a favorite neighborhood spot — known for its generous portions, honest flavors, and friendly service.</p>
-          
-          <div class="bg-green-50 border-l-4 border-[#1b7a3d] p-6 rounded-r-xl italic text-gray-800 font-medium">
-            <i class="fas fa-quote-left text-[#1b7a3d] mr-2"></i>
-            We take pride in serving food that feels like home — slow-cooked, fresh, and made with care. Every customer is family.
+  <!-- NAVBAR (Same as index) -->
+  <nav class="bg-[#1b7a3d] text-white sticky top-0 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-2xl text-[#1b7a3d]"><i class="fas fa-goat"></i></div>
+          <div class="flex flex-col leading-none">
+            <span class="font-montserrat font-black text-xl uppercase">Kambingan</span>
+            <span class="text-sm italic opacity-90">Eatery</span>
           </div>
-          
-          <p>Today, we continue that tradition. From our kitchen to your table, we make sure every dish is prepared with the same love and attention as the first day we opened.</p>
+        </a>
+        <div class="hidden md:flex space-x-6 font-semibold text-sm items-center">
+          <a href="index.html" class="hover:text-yellow-300 transition">Home</a>
+          <a href="menu.html" class="hover:text-yellow-300 transition">Menu</a>
+          <a href="about.html" class="text-yellow-400 border-b-2 border-yellow-400 pb-1">About</a>
+          <a href="contact.html" class="hover:text-yellow-300 transition">Contact</a>
+          <a href="login.html" class="bg-white text-[#1b7a3d] px-4 py-2 rounded-lg hover:bg-gray-100 transition">Staff Login</a>
+        </div>
+        <button id="theme-toggle" class="md:hidden text-2xl"><i class="fas fa-moon"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-7xl mx-auto px-4 py-16">
+    <div class="flex flex-col lg:flex-row gap-12 items-center mb-16">
+      <div class="flex-1">
+        <h1 class="text-4xl font-montserrat font-black text-[#1b7a3d] dark:text-green-400 mb-6">Our Story</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">Kambingan Eatery started as a small family-run stall along the highway, serving hearty goat dishes to locals and travelers alike. Over the years, it has grown into a favorite neighborhood spot — known for its generous portions, honest flavors, and friendly service.</p>
+        <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">Today, we continue that tradition. From our kitchen to your table, we make sure every dish is prepared with the same love and attention as the first day we opened.</p>
+      </div>
+      <div class="flex-1 w-full h-80 bg-[#1b7a3d] rounded-3xl flex items-center justify-center text-8xl text-white shadow-2xl">
+        <i class="fas fa-goat"></i>
+      </div>
+    </div>
+
+    <!-- Accordion / FAQ Section -->
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-montserrat font-black text-center text-[#1b7a3d] dark:text-green-400 mb-8">Frequently Asked Questions</h2>
+      
+      <div class="space-y-4">
+        <!-- Accordion Item 1 -->
+        <div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
+          <button class="accordion-btn w-full flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition font-bold text-left">
+            <span>Anong oras kayo bukas?</span>
+            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+          </button>
+          <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300 bg-white dark:bg-gray-900">
+            <p class="p-4 text-gray-600 dark:text-gray-300">Bukas kami araw-araw mula 10:00 AM hanggang 9:00 PM. Ang kitchen ay nagsasara 30 minuto bago magsara ang tindahan.</p>
+          </div>
         </div>
 
-        <!-- Visual Box -->
-        <div class="flex-1 w-full">
-          <div class="bg-[#1b7a3d] text-white rounded-3xl p-12 text-center shadow-2xl relative overflow-hidden">
-            <div class="absolute -bottom-10 -right-10 text-9xl opacity-10 pointer-events-none">
-              <i class="fas fa-goat"></i>
-            </div>
-            <h3 class="text-3xl font-montserrat font-black mb-4 relative z-10">Family-run since day one</h3>
-            <p class="text-lg text-green-100 relative z-10">Simple food. Honest prices. Warm welcomes.</p>
+        <!-- Accordion Item 2 -->
+        <div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
+          <button class="accordion-btn w-full flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition font-bold text-left">
+            <span>May delivery ba kayo?</span>
+            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+          </button>
+          <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300 bg-white dark:bg-gray-900">
+            <p class="p-4 text-gray-600 dark:text-gray-300">Sa ngayon, walk-in at take-out lang ang aming serbisyo. Malapit na kaming mag-launch ng delivery service!</p>
           </div>
         </div>
 
+        <!-- Accordion Item 3 -->
+        <div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
+          <button class="accordion-btn w-full flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition font-bold text-left">
+            <span>Pwede bang mag-reserve ng table?</span>
+            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+          </button>
+          <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300 bg-white dark:bg-gray-900">
+            <p class="p-4 text-gray-600 dark:text-gray-300">Oo! Tumawag lang sa (02) 1234 5678 o bisitahin ang aming Contact page para sa reservations.</p>
+          </div>
+        </div>
       </div>
     </div>
   </main>
 
+  <footer class="bg-gray-900 text-gray-400 py-8 text-center mt-12">
+    <p>&copy; 2025 Kambingan Eatery. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
