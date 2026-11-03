@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kambingan Eatery · Menu</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@900&family=Pacifico&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            montserrat: ['Montserrat', 'sans-serif'],
+            pacifico: ['Pacifico', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen font-sans">
+
+  <main class="flex-grow py-16 px-6">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-montserrat font-black text-[#1b7a3d] uppercase tracking-wide mb-4">Menu Highlights</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto text-lg">From our signature goat dishes to home-style favorites — every plate is prepared with care.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1 -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 border-t-4 border-t-[#1b7a3d] hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Kalderetang Kambing</h3>
+          <div class="text-[#1b7a3d] font-extrabold text-xl mb-3">₱185</div>
+          <p class="text-gray-600 text-sm leading-relaxed">Tender goat meat simmered in a rich tomato-liver sauce with bell peppers and olives.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 border-t-4 border-t-[#1b7a3d] hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Kambing Papaitan</h3>
+          <div class="text-[#1b7a3d] font-extrabold text-xl mb-3">₱165</div>
+          <p class="text-gray-600 text-sm leading-relaxed">A bold, bitter-savory soup made with goat innards and bile — a true Ilocano classic.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 border-t-4 border-t-[#1b7a3d] hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Sinigang na Kambing</h3>
+          <div class="text-[#1b7a3d] font-extrabold text-xl mb-3">₱175</div>
+          <p class="text-gray-600 text-sm leading-relaxed">Slow-cooked goat in a sour tamarind broth with kangkong and radish.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 border-t-4 border-t-[#1b7a3d] hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Kambing Adobo</h3>
+          <div class="text-[#1b7a3d] font-extrabold text-xl mb-3">₱170</div>
+          <p class="text-gray-600 text-sm leading-relaxed">Goat meat braised in soy sauce, vinegar, garlic, and bay leaves — served with rice.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 border-t-4 border-t-[#1b7a3d] hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Grilled Goat Chops</h3>
+          <div class="text-[#1b7a3d] font-extrabold text-xl mb-3">₱195</div>
+          <p class="text-gray-600 text-sm leading-relaxed">Marinated goat chops char-grilled to perfection, with a side of atchara.</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 border-t-4 border-t-[#1b7a3d] hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Bulalo (Beef)</h3>
+          <div class="text-[#1b7a3d] font-extrabold text-xl mb-3">₱210</div>
+          <p class="text-gray-600 text-sm leading-relaxed">For non-goat lovers: rich beef marrow soup with corn and cabbage.</p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

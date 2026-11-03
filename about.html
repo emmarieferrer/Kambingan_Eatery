@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kambingan Eatery · Our Story</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@900&family=Pacifico&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            montserrat: ['Montserrat', 'sans-serif'],
+            pacifico: ['Pacifico', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-white flex flex-col min-h-screen font-sans">
+
+  <main class="flex-grow py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      
+      <h2 class="text-4xl font-montserrat font-black text-[#1b7a3d] uppercase tracking-wide text-center mb-12">Our Story</h2>
+      
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        
+        <!-- Text Content -->
+        <div class="flex-1 space-y-6 text-gray-600 text-lg leading-relaxed">
+          <p>Kambingan Eatery started as a small family-run stall along the highway, serving hearty goat dishes to locals and travelers alike. Over the years, it has grown into a favorite neighborhood spot — known for its generous portions, honest flavors, and friendly service.</p>
+          
+          <div class="bg-green-50 border-l-4 border-[#1b7a3d] p-6 rounded-r-xl italic text-gray-800 font-medium">
+            <i class="fas fa-quote-left text-[#1b7a3d] mr-2"></i>
+            We take pride in serving food that feels like home — slow-cooked, fresh, and made with care. Every customer is family.
+          </div>
+          
+          <p>Today, we continue that tradition. From our kitchen to your table, we make sure every dish is prepared with the same love and attention as the first day we opened.</p>
+        </div>
+
+        <!-- Visual Box -->
+        <div class="flex-1 w-full">
+          <div class="bg-[#1b7a3d] text-white rounded-3xl p-12 text-center shadow-2xl relative overflow-hidden">
+            <div class="absolute -bottom-10 -right-10 text-9xl opacity-10 pointer-events-none">
+              <i class="fas fa-goat"></i>
+            </div>
+            <h3 class="text-3xl font-montserrat font-black mb-4 relative z-10">Family-run since day one</h3>
+            <p class="text-lg text-green-100 relative z-10">Simple food. Honest prices. Warm welcomes.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
