@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,18 +14,16 @@
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@900&display=swap" rel="stylesheet">
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300 font-sans">
+<body class="m-0 p-0 bg-gray-900 text-gray-100 transition-colors duration-300 font-sans flex flex-col min-h-screen">
 
-  <!-- NAVBAR (Same as index) -->
+  <!-- NAVBAR -->
   <nav class="bg-[#1b7a3d] text-white sticky top-0 z-50 shadow-lg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
-        <a href="index.html" class="flex items-center gap-2">
-          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-2xl text-[#1b7a3d]"><i class="fas fa-goat"></i></div>
-          <div class="flex flex-col leading-none">
-            <span class="font-montserrat font-black text-xl uppercase">Kambingan</span>
-            <span class="text-sm italic opacity-90">Eatery</span>
-          </div>
+
+        <a href="index.html" class="flex flex-col leading-none group">
+          <span class="font-montserrat font-black text-2xl md:text-3xl uppercase tracking-widest text-yellow-400 group-hover:text-yellow-300 transition-colors">Kambingan</span>
+          <span class="text-xs md:text-sm uppercase tracking-[0.3em] font-semibold text-white opacity-90 pl-1">Eatery</span>
         </a>
         <div class="hidden md:flex space-x-6 font-semibold text-sm items-center">
           <a href="index.html" class="hover:text-yellow-300 transition">Home</a>
@@ -34,48 +32,56 @@
           <a href="contact.html" class="hover:text-yellow-300 transition">Contact</a>
           <a href="login.html" class="bg-white text-[#1b7a3d] px-4 py-2 rounded-lg hover:bg-gray-100 transition">Staff Login</a>
         </div>
-        <button id="theme-toggle" class="md:hidden text-2xl"><i class="fas fa-moon"></i></button>
+        <div class="flex items-center gap-4 md:hidden">
+          <button id="mobile-menu-btn" class="text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
+        </div>
       </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-[#155e2f] px-4 py-4 space-y-4 shadow-xl border-t border-green-800">
+      <a href="index.html" class="block hover:text-yellow-300">Home</a>
+      <a href="menu.html" class="block text-yellow-400 font-bold">Menu</a>
+      <a href="about.html" class="block hover:text-yellow-300">About</a>
+      <a href="contact.html" class="block hover:text-yellow-300">Contact</a>
+      <a href="login.html" class="block bg-white text-[#1b7a3d] text-center px-4 py-2 rounded-lg font-bold mt-2">Staff Login</a>
     </div>
   </nav>
 
   <!-- MENU SECTION -->
-  <main class="max-w-7xl mx-auto px-4 py-16">
+  <main class="flex-grow max-w-7xl mx-auto px-4 py-16 w-full">
     <div class="text-center mb-12">
-      <h1 class="text-4xl font-montserrat font-black text-[#1b7a3d] dark:text-green-400 mb-4">Our Menu</h1>
-      <p class="text-gray-600 dark:text-gray-400 mb-8">Click any item to view more details.</p>
+      <h1 class="text-3xl md:text-5xl font-montserrat font-black text-green-400 mb-4">Our Menu</h1>
+      <p class="text-gray-400 mb-8 text-sm md:text-base">Click any item to view more details.</p>
       
-      <!-- Live Search Feature -->
       <div class="max-w-md mx-auto relative">
         <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-        <input type="text" id="searchInput" placeholder="Search for a dish..." class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:outline-none focus:border-[#1b7a3d] transition">
+        <input type="text" id="searchInput" placeholder="Search for a dish..." class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-700 bg-gray-800 focus:outline-none focus:border-green-400 transition text-white">
       </div>
     </div>
 
-    <!-- Menu Grid -->
     <div id="menuGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <!-- JS will populate this -->
     </div>
   </main>
 
   <!-- MODAL POP-UP -->
-  <div id="menuModal" class="fixed inset-0 bg-black/70 hidden z-50 flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-gray-800 rounded-2xl max-w-md w-full p-8 relative shadow-2xl transform scale-95 transition-transform duration-300" id="modalContent">
-      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-white text-2xl"><i class="fas fa-times"></i></button>
+  <div id="menuModal" class="fixed inset-0 bg-black/80 hidden z-50 flex items-center justify-center p-4">
+    <div class="bg-gray-800 rounded-2xl max-w-md w-full p-8 relative shadow-2xl transform scale-95 transition-transform duration-300 border border-gray-700" id="modalContent">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">
+        <i class="fas fa-times"></i>
+      </button>
       <div class="text-center">
-        <div class="w-20 h-20 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl text-[#1b7a3d] dark:text-green-400">
-          <i class="fas fa-utensils"></i>
+        <div id="modalImageContainer" class="w-24 h-24 bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl text-green-400 overflow-hidden">
+          <i class="fas fa-utensils" id="modalIcon"></i>
         </div>
-        <h3 id="modalTitle" class="text-2xl font-black mb-2">Dish Name</h3>
-        <p id="modalPrice" class="text-2xl font-bold text-[#1b7a3d] dark:text-green-400 mb-4">₱0.00</p>
-        <p id="modalDesc" class="text-gray-600 dark:text-gray-300 mb-6">Description here.</p>
-        <button onclick="closeModal()" class="bg-[#1b7a3d] text-white font-bold py-2 px-8 rounded-full hover:bg-[#115327] transition">Close</button>
+        <h3 id="modalTitle" class="text-2xl font-black mb-2 text-white">Dish Name</h3>
+        <p id="modalPrice" class="text-2xl font-bold text-green-400 mb-4">₱0.00</p>
+        <p id="modalDesc" class="text-gray-400 mb-2">Description here.</p>
       </div>
     </div>
   </div>
 
-  <footer class="bg-gray-900 text-gray-400 py-8 text-center mt-12">
-    <p>&copy; 2025 Kambingan Eatery. All rights reserved.</p>
+  <<footer class="bg-gray-800 border-t border-gray-700 text-gray-400 py-6 text-center mt-auto">
+    <p class="text-sm md:text-base">&copy; 2026 Kambingan Eatery. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
