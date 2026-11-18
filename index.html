@@ -115,13 +115,19 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Experience the rich, slow-cooked flavors of our family recipes.
           </p>
           
+          <!-- Hero Buttons -->
           <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            
+            <!-- Explore Menu (Solid Green) -->
             <a href="menu.html" class="w-full sm:w-auto bg-brand text-white px-8 py-4 rounded-full font-medium hover:bg-brandhover transition-all duration-300 shadow-lg shadow-brand/30 flex items-center justify-center gap-2">
               Explore Menu <i class="fas fa-arrow-right text-sm"></i>
             </a>
-            <a href="contact.html" class="w-full sm:w-auto bg-transparent border border-gray-300 text-charcoal px-8 py-4 rounded-full font-medium hover:border-charcoal hover:bg-gray-50 transition-all duration-300 flex items-center justify-center">
+            
+            <!-- Contact Us (White with Green Border) -->
+            <a href="contact.html" class="w-full sm:w-auto bg-white text-brand border-2 border-brand px-8 py-4 rounded-full font-medium hover:bg-brand hover:text-white transition-all duration-300 flex items-center justify-center">
               Contact Us
             </a>
+            
           </div>
         </div>
 
@@ -216,7 +222,7 @@
           <p class="text-gray-600 text-lg leading-relaxed mb-10">
             Today, we continue that tradition. From our kitchen to your table, we make sure every dish is prepared with the same love and attention as the first day we opened.
           </p>
-          <a href="about.html" class="inline-flex items-center gap-2 border-b border-charcoal text-charcoal pb-1 font-medium hover:text-brand hover:border-brand transition-all duration-300">
+          <a href="about.html" class="inline-flex items-center gap-2 border-b border-brand text-brand pb-1 font-medium hover:text-brandhover hover:border-brandhover transition-all duration-300">
             Read More About Us <i class="fas fa-arrow-right text-sm"></i>
           </a>
         </div>
@@ -269,22 +275,7 @@
     <p class="text-sm tracking-wide">&copy; 2025 Kambingan Eatery. All rights reserved.</p>
   </footer>
 
-  <!-- SCRIPT PARA SA MOBILE MENU -->
-  <script>
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileMenuBtn && mobileMenu) {
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        const icon = mobileMenuBtn.querySelector('i');
-        if (mobileMenu.classList.contains('hidden')) {
-          icon.classList.replace('fa-times', 'fa-bars');
-        } else {
-          icon.classList.replace('fa-bars', 'fa-times');
-        }
-      });
-    }
-  </script>
+  <!-- LINK TO EXTERNAL JS -->
+  <script src="script.js"></script>
 </body>
 </html>

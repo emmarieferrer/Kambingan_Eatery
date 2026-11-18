@@ -23,8 +23,8 @@
             serif: ['Playfair Display', 'serif'] 
           },
           colors: {
-            brand: '#1b7a3d', 
-            brandhover: '#115327', 
+            brand: '#047857', /* Emerald Green */
+            brandhover: '#065f46', /* Darker Emerald */
             charcoal: '#333333'
           }
         } 
@@ -165,82 +165,7 @@
     </div>
   </main>
 
-  <!-- SCRIPT -->
-  <script>
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileMenuBtn && mobileMenu) {
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        const icon = mobileMenuBtn.querySelector('i');
-        if (mobileMenu.classList.contains('hidden')) {
-          icon.classList.replace('fa-times', 'fa-bars');
-        } else {
-          icon.classList.replace('fa-bars', 'fa-times');
-        }
-      });
-    }
-
-    // Form Validation
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-      const dateInput = document.getElementById('resDate');
-      if (dateInput) {
-        const today = new Date().toISOString().split('T')[0];
-        dateInput.setAttribute('min', today);
-      }
-
-      contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        let isValid = true;
-
-        const name = document.getElementById('name');
-        const nameError = document.getElementById('nameError');
-        if (name.value.trim() === '') {
-          nameError.classList.remove('hidden');
-          name.classList.add('border-red-500');
-          isValid = false;
-        } else {
-          nameError.classList.add('hidden');
-          name.classList.remove('border-red-500');
-        }
-
-        const email = document.getElementById('email');
-        const emailError = document.getElementById('emailError');
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email.value.trim())) {
-          emailError.classList.remove('hidden');
-          email.classList.add('border-red-500');
-          isValid = false;
-        } else {
-          emailError.classList.add('hidden');
-          email.classList.remove('border-red-500');
-        }
-
-        const message = document.getElementById('message');
-        const messageError = document.getElementById('messageError');
-        if (message.value.trim() === '') {
-          messageError.classList.remove('hidden');
-          message.classList.add('border-red-500');
-          isValid = false;
-        } else {
-          messageError.classList.add('hidden');
-          message.classList.remove('border-red-500');
-        }
-
-        if (isValid) {
-          const successMsg = document.getElementById('successMsg');
-          successMsg.classList.remove('hidden');
-          contactForm.reset();
-          
-          setTimeout(() => {
-            successMsg.classList.add('hidden');
-          }, 5000);
-        }
-      });
-    }
-  </script>
+  <!-- LINK TO EXTERNAL JS -->
+  <script src="script.js"></script>
 </body>
 </html>

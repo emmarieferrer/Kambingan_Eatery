@@ -23,8 +23,8 @@
             serif: ['Playfair Display', 'serif'] 
           },
           colors: {
-            brand: '#1b7a3d', 
-            brandhover: '#115327', 
+            brand: '#047857', /* Emerald Green */
+            brandhover: '#065f46', /* Darker Emerald */
             charcoal: '#333333'
           }
         } 
@@ -93,21 +93,29 @@
       <span class="uppercase tracking-[0.3em] text-xs font-bold text-brand/60 mb-4 block">Our Menu</span>
       <h1 class="text-5xl md:text-7xl font-serif font-bold text-charcoal mb-6">Find your favourite</h1>
       <p class="text-gray-600 max-w-2xl mx-auto text-lg mb-10">Explore our selection of hearty, slow-cooked dishes.</p>
-      
-      <!-- Search Bar -->
-      <div class="max-w-md mx-auto relative border-b border-gray-300 pb-2">
-        <input type="text" id="searchInput" placeholder="Search for a dish..." class="w-full bg-transparent focus:outline-none text-lg placeholder-gray-400 text-charcoal">
-        <i class="fas fa-search absolute right-0 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+    </div>
+
+    <!-- Search Bar (Fixed at the top, not scrolling) -->
+    <div class="w-full py-4 mb-16 max-w-4xl mx-auto px-4 lg:px-0">
+      <div class="relative bg-white rounded-full shadow-md border-2 border-brand group">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Search for a dish..." 
+          class="w-full px-6 py-4 pl-14 rounded-full bg-transparent focus:outline-none focus:ring-4 focus:ring-brand/20 text-lg transition-all duration-300 placeholder-gray-400 text-charcoal"
+        >
+        <div class="absolute left-5 top-1/2 transform -translate-y-1/2 text-brand">
+          <i class="fas fa-search text-xl"></i>
+        </div>
       </div>
     </div>
 
-    <!-- Menu Grid (Pictures + Details) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+    <!-- Menu Grid -->
+    <div id="menuGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 min-h-[500px]">
       
-      <!-- Item 1: Papaitan -->
-      <div class="group cursor-pointer flex flex-col items-center text-center">
+      <!-- Item 1 -->
+      <div class="menu-card group cursor-pointer flex flex-col items-center text-center">
         <div class="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden mb-6 border-8 border-white shadow-xl relative">
-          <!-- Placeholder image para sa Papaitan -->
           <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kambing Papaitan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
         </div>
         <h3 class="text-2xl font-serif font-bold text-charcoal mb-1">Kambing Papaitan</h3>
@@ -115,10 +123,9 @@
         <p class="text-gray-500 text-sm leading-relaxed max-w-xs">A bold, bitter-savory soup made with goat innards.</p>
       </div>
 
-      <!-- Item 2: Kaldereta -->
-      <div class="group cursor-pointer flex flex-col items-center text-center">
+      <!-- Item 2 -->
+      <div class="menu-card group cursor-pointer flex flex-col items-center text-center">
         <div class="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden mb-6 border-8 border-white shadow-xl relative">
-          <!-- Placeholder image para sa Kaldereta -->
           <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kalderetang Kambing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
         </div>
         <h3 class="text-2xl font-serif font-bold text-charcoal mb-1">Kalderetang Kambing</h3>
@@ -126,10 +133,9 @@
         <p class="text-gray-500 text-sm leading-relaxed max-w-xs">Tender goat meat simmered in a rich tomato-liver sauce.</p>
       </div>
 
-      <!-- Item 3: Adobo -->
-      <div class="group cursor-pointer flex flex-col items-center text-center">
+      <!-- Item 3 -->
+      <div class="menu-card group cursor-pointer flex flex-col items-center text-center">
         <div class="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden mb-6 border-8 border-white shadow-xl relative">
-          <!-- Placeholder image para sa Adobo -->
           <img src="images/kambingadobo.jpg" alt="Kambing Adobo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
         </div>
         <h3 class="text-2xl font-serif font-bold text-charcoal mb-1">Kambing Adobo</h3>
@@ -137,10 +143,9 @@
         <p class="text-gray-500 text-sm leading-relaxed max-w-xs">Goat meat braised in soy sauce, vinegar, and garlic.</p>
       </div>
 
-      <!-- Item 4: Nilagang Baboy -->
-      <div class="group cursor-pointer flex flex-col items-center text-center">
+      <!-- Item 4 -->
+      <div class="menu-card group cursor-pointer flex flex-col items-center text-center">
         <div class="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden mb-6 border-8 border-white shadow-xl relative">
-          <!-- Placeholder image para sa Nilaga -->
           <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nilagang Baboy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
         </div>
         <h3 class="text-2xl font-serif font-bold text-charcoal mb-1">Nilagang Baboy</h3>
@@ -148,10 +153,9 @@
         <p class="text-gray-500 text-sm leading-relaxed max-w-xs">Comforting pork soup with vegetables in a clear broth.</p>
       </div>
 
-      <!-- Item 5: Igado -->
-      <div class="group cursor-pointer flex flex-col items-center text-center">
+      <!-- Item 5 -->
+      <div class="menu-card group cursor-pointer flex flex-col items-center text-center">
         <div class="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden mb-6 border-8 border-white shadow-xl relative">
-          <!-- Placeholder image para sa Igado -->
           <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Igado" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
         </div>
         <h3 class="text-2xl font-serif font-bold text-charcoal mb-1">Igado</h3>
@@ -159,10 +163,9 @@
         <p class="text-gray-500 text-sm leading-relaxed max-w-xs">Pork strips and liver cooked with bell peppers and peas.</p>
       </div>
 
-      <!-- Item 6: Humba -->
-      <div class="group cursor-pointer flex flex-col items-center text-center">
+      <!-- Item 6 -->
+      <div class="menu-card group cursor-pointer flex flex-col items-center text-center">
         <div class="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden mb-6 border-8 border-white shadow-xl relative">
-          <!-- Placeholder image para sa Humba -->
           <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Humba" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
         </div>
         <h3 class="text-2xl font-serif font-bold text-charcoal mb-1">Humba</h3>
@@ -170,10 +173,9 @@
         <p class="text-gray-500 text-sm leading-relaxed max-w-xs">Sweet and savory braised pork belly with peanuts.</p>
       </div>
 
-      <!-- Item 7: Pork Adobo -->
-      <div class="group cursor-pointer flex flex-col items-center text-center">
+      <!-- Item 7 -->
+      <div class="menu-card group cursor-pointer flex flex-col items-center text-center">
         <div class="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden mb-6 border-8 border-white shadow-xl relative">
-          <!-- Placeholder image para sa Pork Adobo -->
           <img src="images/porkadobo.jpg" alt="Pork Adobo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
         </div>
         <h3 class="text-2xl font-serif font-bold text-charcoal mb-1">Pork Adobo</h3>
@@ -181,10 +183,9 @@
         <p class="text-gray-500 text-sm leading-relaxed max-w-xs">The classic Filipino dish cooked in soy sauce and vinegar.</p>
       </div>
 
-      <!-- Item 8: Dinuguan -->
-      <div class="group cursor-pointer flex flex-col items-center text-center">
+      <!-- Item 8 -->
+      <div class="menu-card group cursor-pointer flex flex-col items-center text-center">
         <div class="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden mb-6 border-8 border-white shadow-xl relative">
-          <!-- Placeholder image para sa Dinuguan -->
           <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dinuguan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
         </div>
         <h3 class="text-2xl font-serif font-bold text-charcoal mb-1">Dinuguan</h3>
@@ -193,7 +194,6 @@
       </div>
 
     </div>
-
   </main>
 
   <!-- FOOTER -->
@@ -201,40 +201,7 @@
     <p class="text-sm tracking-wide">&copy; 2025 Kambingan Eatery. All rights reserved.</p>
   </footer>
 
-  <!-- SCRIPT PARA SA MOBILE MENU & SEARCH -->
-  <script>
-    // Mobile Menu
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileMenuBtn && mobileMenu) {
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        const icon = mobileMenuBtn.querySelector('i');
-        if (mobileMenu.classList.contains('hidden')) {
-          icon.classList.replace('fa-times', 'fa-bars');
-        } else {
-          icon.classList.replace('fa-bars', 'fa-times');
-        }
-      });
-    }
-
-    // Live Search
-    const searchInput = document.getElementById('searchInput');
-    if (searchInput) {
-      searchInput.addEventListener('input', (e) => {
-        const term = e.target.value.toLowerCase();
-        const items = document.querySelectorAll('.group'); 
-        items.forEach(item => {
-          const text = item.innerText.toLowerCase();
-          if (text.includes(term)) {
-            item.style.display = 'flex';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    }
-  </script>
+  <!-- LINK TO EXTERNAL JS -->
+  <script src="script.js"></script>
 </body>
 </html>
