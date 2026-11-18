@@ -1,131 +1,226 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kambingan Eatery · About</title>
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Google Fonts: Playfair Display (Serif) at Inter (Sans-Serif) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <script>
     tailwind.config = {
-      darkMode: 'class',
-      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], montserrat: ['Montserrat', 'sans-serif'] } } }
+      theme: { 
+        extend: { 
+          fontFamily: { 
+            sans: ['Inter', 'sans-serif'], 
+            serif: ['Playfair Display', 'serif'] 
+          },
+          colors: {
+            brand: '#1b7a3d', 
+            brandhover: '#115327', 
+            charcoal: '#333333'
+          }
+        } 
+      }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #fcfcfc;
+      background-image: radial-gradient(#e5e5e5 1px, transparent 1px);
+      background-size: 20px 20px; 
+    }
+  </style>
 </head>
-<body class="m-0 p-0 bg-gray-900 text-gray-100 transition-colors duration-300 font-sans flex flex-col min-h-screen">
+<body class="text-charcoal font-sans flex flex-col min-h-screen selection:bg-brand selection:text-white">
 
-  <!-- NAVBAR -->
-  <nav class="bg-[#1b7a3d] text-white sticky top-0 z-50 shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
-
-        <a href="index.html" class="flex flex-col leading-none group">
-          <span class="font-montserrat font-black text-2xl md:text-3xl uppercase tracking-widest text-yellow-400 group-hover:text-yellow-300 transition-colors">Kambingan</span>
-          <span class="text-xs md:text-sm uppercase tracking-[0.3em] font-semibold text-white opacity-90 pl-1">Eatery</span>
+  <!-- NAVBAR (Same as Home) -->
+  <nav class="w-full bg-[#fcfcfc]/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-24">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <i class="fas fa-goat text-brand text-3xl group-hover:-translate-y-1 transition-transform"></i>
+          <div class="flex flex-col leading-none">
+            <span class="font-serif italic font-bold text-3xl text-brand tracking-tight">Kambingan</span>
+            <span class="text-xs uppercase tracking-[0.2em] text-brand/70 font-semibold mt-1">Eatery</span>
+          </div>
         </a>
-        
-        <div class="hidden md:flex space-x-6 font-semibold text-sm items-center">
-          <a href="index.html" class="hover:text-yellow-300 transition">Home</a>
-          <a href="menu.html" class="hover:text-yellow-300 transition">Menu</a>
-          <a href="about.html" class="text-yellow-400 border-b-2 border-yellow-400 pb-1">About</a>
-          <a href="contact.html" class="hover:text-yellow-300 transition">Contact</a>
-          <a href="login.html" class="bg-white text-[#1b7a3d] px-4 py-2 rounded-lg hover:bg-gray-100 transition">Staff Login</a>
+        <div class="hidden md:flex space-x-8 font-medium text-sm items-center">
+          <a href="index.html" class="hover:text-brand transition-colors">Home</a>
+          <a href="about.html" class="text-brand border-b-2 border-brand pb-1 transition-colors">About</a>
+          <a href="menu.html" class="hover:text-brand transition-colors">Menu</a>
+          <a href="contact.html" class="hover:text-brand transition-colors">Contact</a>
+          <a href="login.html" class="bg-brand text-white px-6 py-2.5 rounded-full hover:bg-brandhover transition-all duration-300 shadow-sm font-medium ml-4">Staff Login</a>
         </div>
-
-        <div class="flex items-center gap-4 md:hidden">
-          <button id="mobile-menu-btn" class="text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
+        <div class="flex items-center md:hidden">
+          <button id="mobile-menu-btn" class="text-2xl text-charcoal focus:outline-none">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
       </div>
     </div>
-
-    <div id="mobile-menu" class="hidden md:hidden bg-[#155e2f] px-4 py-4 space-y-4 shadow-xl border-t border-green-800">
-      <a href="index.html" class="block hover:text-yellow-300">Home</a>
-      <a href="menu.html" class="block hover:text-yellow-300">Menu</a>
-      <a href="about.html" class="block text-yellow-400 font-bold">About</a>
-      <a href="contact.html" class="block hover:text-yellow-300">Contact</a>
-      <a href="login.html" class="block bg-white text-[#1b7a3d] text-center px-4 py-2 rounded-lg font-bold mt-2">Staff Login</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-6 space-y-4 shadow-xl absolute w-full left-0">
+      <a href="index.html" class="block hover:text-brand transition">Home</a>
+      <a href="about.html" class="block font-bold text-brand">About</a>
+      <a href="menu.html" class="block hover:text-brand transition">Menu</a>
+      <a href="contact.html" class="block hover:text-brand transition">Contact</a>
+      <a href="login.html" class="block bg-brand text-white text-center px-4 py-3 rounded-full mt-4 font-medium hover:bg-brandhover transition">Staff Login</a>
     </div>
   </nav>
 
-  <main class="flex-grow max-w-7xl mx-auto px-4 py-16 w-full">
-    <div class="flex flex-col lg:flex-row gap-12 items-center mb-16">
-      
-      <div class="flex-1">
-        <h1 class="text-3xl md:text-5xl font-montserrat font-black text-green-400 mb-6">Our Story</h1>
-        <p class="text-base md:text-lg text-gray-300 mb-4 leading-relaxed">Kambingan Eatery started as a small family-run stall along the highway, serving hearty goat dishes to locals and travelers alike. Over the years, it has grown into a favorite neighborhood spot — known for its generous portions, honest flavors, and friendly service.</p>
-        <p class="text-base md:text-lg text-gray-300 leading-relaxed">Today, we continue that tradition. From our kitchen to your table, we make sure every dish is prepared with the same love and attention as the first day we opened.</p>
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow w-full">
+    
+    <!-- 1. OUR STORY (Split Layout) -->
+    <section class="max-w-7xl mx-auto px-6 lg:px-8 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <!-- Image -->
+      <div class="relative h-[400px] lg:h-[600px] w-full rounded-[2rem] overflow-hidden shadow-2xl order-2 lg:order-1">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kambingan Eatery Storefront" class="w-full h-full object-cover">
       </div>
-      
-      <div class="flex-1 w-full relative">
-        <div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl bg-gray-700 border border-gray-700">
-          
-          <div class="about-slide absolute inset-0 transition-opacity duration-700 opacity-100">
-            <img src="images/logo.jpg" alt="Kambingan Eatery Storefront" class="w-full h-full object-cover">
-          </div>
 
-          <div class="about-slide absolute inset-0 transition-opacity duration-700 opacity-0">
-            <img src="images/store.jpg" alt="Kambingan Eatery Dining Area" class="w-full h-full object-cover">
-          </div>
-
-          <!-- CAROUSEL ARROWS (Nakatago sa mobile gamit ang 'hidden md:block') -->
-          <div class="hidden md:block">
-            <button onclick="aboutPrevSlide()" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/40 text-white p-3 rounded-full hover:bg-black/70 transition z-10"><i class="fas fa-chevron-left"></i></button>
-            <button onclick="aboutNextSlide()" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/40 text-white p-3 rounded-full hover:bg-black/70 transition z-10"><i class="fas fa-chevron-right"></i></button>
-          </div>
-
-          <!-- DOTS (Nakatago sa mobile gamit ang 'hidden md:flex') -->
-          <div class="hidden md:flex absolute bottom-4 left-1/2 transform -translate-x-1/2 space-x-2 z-10">
-            <span id="about-dot-0" class="w-3 h-3 rounded-full bg-white transition-opacity opacity-100 cursor-pointer" onclick="aboutGoToSlide(0)"></span>
-            <span id="about-dot-1" class="w-3 h-3 rounded-full bg-white transition-opacity opacity-50 cursor-pointer" onclick="aboutGoToSlide(1)"></span>
+      <!-- Text -->
+      <div class="order-1 lg:order-2">
+        <span class="uppercase tracking-[0.3em] text-xs font-bold text-brand/60 mb-4 block">Our Story</span>
+        <h1 class="text-4xl md:text-6xl font-serif font-bold text-charcoal mb-8 leading-tight">A family tradition passed down through generations.</h1>
+        <div class="text-gray-600 text-lg leading-relaxed space-y-6">
+          <p>Kambingan Eatery started as a small family-run stall along the highway, serving hearty goat dishes to locals and travelers alike. Over the years, it has grown into a favorite neighborhood spot — known for its generous portions, honest flavors, and friendly service.</p>
+          <p>Today, we continue that tradition. From our kitchen to your table, we make sure every dish is prepared with the same love and attention as the first day we opened.</p>
+        </div>
+        
+        <!-- Signature / Owner -->
+        <div class="mt-10 flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Owner" class="w-14 h-14 rounded-full object-cover border-2 border-brand">
+          <div>
+            <p class="font-serif font-bold text-lg">Ms. Genie Inciong</p>
+            <p class="text-sm text-gray-500">Owner & Head Cook</p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl md:text-4xl font-montserrat font-black text-center text-green-400 mb-8">Frequently Asked Questions</h2>
+    <!-- 2. THE HEART OF THE KITCHEN (Quote/Philosophy) -->
+    <section class="bg-brand text-white py-24 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+      <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+        <i class="fas fa-quote-left text-5xl text-white/30 mb-8"></i>
+        <h2 class="text-3xl md:text-5xl font-serif font-bold leading-tight mb-8">"Cooking is not just about feeding people; it's about making them feel at home."</h2>
+        <p class="text-white/80 text-lg">Every dish we serve is a reflection of our family's passion for good food and great company.</p>
+      </div>
+    </section>
+
+    <!-- 3. FREQUENTLY ASKED QUESTIONS (Accordion) -->
+    <section class="max-w-3xl mx-auto px-6 py-24">
+      <div class="text-center mb-16">
+        <span class="uppercase tracking-[0.3em] text-xs font-bold text-brand/60 mb-4 block">Got Questions?</span>
+        <h2 class="text-3xl md:text-5xl font-serif font-bold text-charcoal">Frequently Asked Questions</h2>
+      </div>
       
       <div class="space-y-4">
-        <div class="border border-gray-700 rounded-xl overflow-hidden bg-gray-800">
-          <button class="accordion-btn w-full flex justify-between items-center p-4 bg-gray-800 hover:bg-gray-700 transition font-bold text-left text-sm md:text-base text-white">
-            <span>Anong oras kayo bukas?</span>
-            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+        <!-- FAQ 1 -->
+        <div class="border-b border-gray-300 bg-transparent">
+          <button class="accordion-btn w-full flex justify-between items-center py-6 text-left focus:outline-none group">
+            <span class="text-lg font-bold text-charcoal group-hover:text-brand transition-colors">Anong oras kayo bukas?</span>
+            <i class="fas fa-plus text-brand transition-transform duration-300"></i>
           </button>
-          <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300 bg-gray-900">
-            <p class="p-4 text-sm md:text-base text-gray-300">Bukas kami araw-araw mula 10:00 AM hanggang 9:00 PM. Ang kitchen ay nagsasara 30 minuto bago magsara ang tindahan.</p>
+          <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300">
+            <p class="pb-6 text-gray-600 leading-relaxed">Bukas kami araw-araw mula 10:00 AM hanggang 9:00 PM. Ang kitchen ay nagsasara 30 minuto bago magsara ang tindahan.</p>
           </div>
         </div>
 
-        <div class="border border-gray-700 rounded-xl overflow-hidden bg-gray-800">
-          <button class="accordion-btn w-full flex justify-between items-center p-4 bg-gray-800 hover:bg-gray-700 transition font-bold text-left text-sm md:text-base text-white">
-            <span>May delivery ba kayo?</span>
-            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+        <!-- FAQ 2 -->
+        <div class="border-b border-gray-300 bg-transparent">
+          <button class="accordion-btn w-full flex justify-between items-center py-6 text-left focus:outline-none group">
+            <span class="text-lg font-bold text-charcoal group-hover:text-brand transition-colors">May delivery ba kayo?</span>
+            <i class="fas fa-plus text-brand transition-transform duration-300"></i>
           </button>
-          <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300 bg-gray-900">
-            <p class="p-4 text-sm md:text-base text-gray-300">Sa ngayon, walk-in at take-out lang ang aming serbisyo. Malapit na kaming mag-launch ng delivery service!</p>
+          <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300">
+            <p class="pb-6 text-gray-600 leading-relaxed">Sa ngayon, walk-in at take-out lang ang aming serbisyo. Malapit na kaming mag-launch ng delivery service!</p>
           </div>
         </div>
 
-        <div class="border border-gray-700 rounded-xl overflow-hidden bg-gray-800">
-          <button class="accordion-btn w-full flex justify-between items-center p-4 bg-gray-800 hover:bg-gray-700 transition font-bold text-left text-sm md:text-base text-white">
-            <span>Pwede bang mag-reserve ng table?</span>
-            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+        <!-- FAQ 3 -->
+        <div class="border-b border-gray-300 bg-transparent">
+          <button class="accordion-btn w-full flex justify-between items-center py-6 text-left focus:outline-none group">
+            <span class="text-lg font-bold text-charcoal group-hover:text-brand transition-colors">Pwede bang mag-reserve ng table?</span>
+            <i class="fas fa-plus text-brand transition-transform duration-300"></i>
           </button>
-          <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300 bg-gray-900">
-            <p class="p-4 text-sm md:text-base text-gray-300">Oo! Tumawag lang sa (02) 1234 5678 o bisitahin ang aming Contact page para sa reservations.</p>
+          <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300">
+            <p class="pb-6 text-gray-600 leading-relaxed">Oo! Tumawag lang sa (02) 1234 5678 o bisitahin ang aming Contact page para sa reservations.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ 4 -->
+        <div class="border-b border-gray-300 bg-transparent">
+          <button class="accordion-btn w-full flex justify-between items-center py-6 text-left focus:outline-none group">
+            <span class="text-lg font-bold text-charcoal group-hover:text-brand transition-colors">Saan kayo naka-locate?</span>
+            <i class="fas fa-plus text-brand transition-transform duration-300"></i>
+          </button>
+          <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300">
+            <p class="pb-6 text-gray-600 leading-relaxed">Nasa Purok 3, Brgy. San Isidro, Laguna kami, sa tabi mismo ng national highway. Madali kaming makikita dahil sa aming berdeng tindahan.</p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
   </main>
 
-  <!-- Naayos na ang typo (naging <footer) -->
-  <footer class="bg-gray-800 border-t border-gray-700 text-gray-400 py-6 text-center mt-auto">
-    <p class="text-sm md:text-base">&copy; 2025 Kambingan Eatery. All rights reserved.</p>
+  <!-- FOOTER -->
+  <footer class="bg-charcoal text-white/60 py-8 text-center mt-auto">
+    <p class="text-sm tracking-wide">&copy; 2025 Kambingan Eatery. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- SCRIPT PARA SA MOBILE MENU & ACCORDION -->
+  <script>
+    // Mobile Menu
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        const icon = mobileMenuBtn.querySelector('i');
+        if (mobileMenu.classList.contains('hidden')) {
+          icon.classList.replace('fa-times', 'fa-bars');
+        } else {
+          icon.classList.replace('fa-bars', 'fa-times');
+        }
+      });
+    }
+
+    // Minimalist Accordion Logic
+    const accordionBtns = document.querySelectorAll('.accordion-btn');
+    
+    accordionBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('i');
+        
+        // Isara lahat ng iba pang bukas
+        accordionBtns.forEach(otherBtn => {
+          if (otherBtn !== btn) {
+            otherBtn.nextElementSibling.style.maxHeight = '0px';
+            otherBtn.querySelector('i').style.transform = 'rotate(0deg)';
+          }
+        });
+
+        // I-toggle ang pinindot
+        if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+          content.style.maxHeight = '0px';
+          icon.style.transform = 'rotate(0deg)';
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          icon.style.transform = 'rotate(45deg)'; // Gagawing 'X' ang plus sign
+        }
+      });
+    });
+  </script>
 </body>
 </html>

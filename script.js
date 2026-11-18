@@ -16,53 +16,92 @@ if (mobileMenuBtn && mobileMenu) {
 }
 
 // ==========================================
-// 2. CAROUSEL (Homepage)
+// 2. HERO CAROUSEL (Split Layout)
 // ==========================================
 let currentSlide = 0;
-const slides = document.querySelectorAll('.carousel-slide');
+const heroTexts = document.querySelectorAll('.hero-text');
+const heroImages = document.querySelectorAll('.hero-image');
+const heroDots = document.querySelectorAll('.hero-dot');
 
 function showSlide(index) {
-  if (!slides.length) return;
-  slides.forEach((slide, i) => {
-    slide.style.opacity = i === index ? '1' : '0';
+  if (!heroTexts.length) return;
+
+  // I-update ang Text
+  heroTexts.forEach((text, i) => {
+    if (i === index) {
+      text.classList.remove('opacity-0', 'pointer-events-none');
+      text.classList.add('opacity-100');
+    } else {
+      text.classList.add('opacity-0', 'pointer-events-none');
+      text.classList.remove('opacity-100');
+    }
   });
+
+  // I-update ang Image
+  heroImages.forEach((img, i) => {
+    if (i === index) {
+      img.classList.remove('opacity-0');
+      img.classList.add('opacity-100');
+    } else {
+      img.classList.add('opacity-0');
+      img.classList.remove('opacity-100');
+    }
+  });
+
+  // I-update ang Dots
+  heroDots.forEach((dot, i) => {
+    if (i === index) {
+      dot.classList.add('bg-[#1a2e22]');
+      dot.classList.remove('bg-[#1a2e22]/20');
+    } else {
+      dot.classList.remove('bg-[#1a2e22]');
+      dot.classList.add('bg-[#1a2e22]/20');
+    }
+  });
+
+  currentSlide = index;
 }
 
 function nextSlide() {
-  if (!slides.length) return;
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
+  if (!heroImages.length) return;
+  let nextIndex = (currentSlide + 1) % heroImages.length;
+  showSlide(nextIndex);
 }
 
 function prevSlide() {
-  if (!slides.length) return;
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(currentSlide);
+  if (!heroImages.length) return;
+  let prevIndex = (currentSlide - 1 + heroImages.length) % heroImages.length;
+  showSlide(prevIndex);
 }
 
 let carouselInterval;
 
 function startCarouselTimer() {
-  if (slides.length > 0) {
+  if (heroImages.length > 0) {
     clearInterval(carouselInterval);
     carouselInterval = setInterval(nextSlide, 5000);
   }
 }
 
-function resetAndStartCarousel() {
-  startCarouselTimer();
-}
+// I-bind ang dots para pwedeng pindutin
+heroDots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    showSlide(index);
+    startCarouselTimer(); // reset timer pag pinindot
+  });
+});
 
-const originalNext = nextSlide;
+// I-reset ang timer kapag pinindot ang arrow buttons
+const originalNextSlide = nextSlide;
 nextSlide = function() {
-  originalNext();
-  resetAndStartCarousel();
+  originalNextSlide();
+  startCarouselTimer();
 };
 
-const originalPrev = prevSlide;
+const originalPrevSlide = prevSlide;
 prevSlide = function() {
-  originalPrev();
-  resetAndStartCarousel();
+  originalPrevSlide();
+  startCarouselTimer();
 };
 
 startCarouselTimer();
@@ -89,38 +128,36 @@ function renderMenu(filterText = "") {
   );
 
   if (filtered.length === 0) {
-    grid.innerHTML = `<p class="text-gray-500 col-span-full text-center py-8">No dishes found.</p>`;
+    grid.innerHTML = `<p class="text-[#1a2e22]/50 col-span-full text-center py-8">No dishes found.</p>`;
     return;
   }
 
   filtered.forEach(item => {
+    // Fallback kung walang image
     const imageHTML = item.image 
-      ? `<img src="${item.image}" alt="${item.name}" class="w-full h-48 object-cover rounded-t-2xl">` 
-      : `<div class="w-full h-48 bg-green-900 flex items-center justify-center rounded-t-2xl"><i class="fas fa-utensils text-4xl text-green-400"></i></div>`;
+      ? `<img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">` 
+      : `<div class="w-full h-full flex items-center justify-center bg-[#e5e9e4]"><i class="fas fa-utensils text-5xl text-[#1a2e22]/20"></i></div>`;
 
     const card = document.createElement('div');
-    card.className = "bg-gray-800 rounded-2xl cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 border border-gray-700 overflow-hidden flex flex-col";
+    // Minimalist card design (No background, image on top, text below)
+    card.className = "cursor-pointer group flex flex-col h-full";
     
     card.innerHTML = `
-      ${imageHTML}
-      <div class="p-6 flex flex-col flex-grow">
-        <div class="flex justify-between items-start mb-4">
-          <span class="text-xs font-bold bg-green-900 text-green-400 px-3 py-1 rounded-full uppercase">${item.category}</span>
-          <span class="text-xl font-black text-green-400">₱${item.price}</span>
+      <div class="relative aspect-[4/5] overflow-hidden bg-[#e5e9e4] mb-6">
+        ${imageHTML}
+      </div>
+      <div class="flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="text-2xl font-serif font-bold text-[#1a2e22] group-hover:text-[#c4976a] transition-colors">${item.name}</h3>
+          <span class="text-lg font-semibold text-[#1a2e22]/70">₱${item.price}</span>
         </div>
-        <h3 class="text-xl font-bold mb-2 text-white">${item.name}</h3>
-        <p class="text-sm text-gray-400 line-clamp-2 mt-auto">${item.desc}</p>
+        <span class="text-xs uppercase tracking-widest text-[#c4976a] font-bold mb-3 block">${item.category}</span>
+        <p class="text-[#1a2e22]/60 text-sm leading-relaxed line-clamp-2">${item.desc}</p>
       </div>
     `;
     card.addEventListener('click', () => openModal(item));
     grid.appendChild(card);
   });
-}
-
-const searchInput = document.getElementById('searchInput');
-if (searchInput) {
-  searchInput.addEventListener('input', (e) => renderMenu(e.target.value));
-  renderMenu();
 }
 
 function openModal(item) {
@@ -131,7 +168,7 @@ function openModal(item) {
   if (item.image) {
     modalImgContainer.innerHTML = `<img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">`;
   } else {
-    modalImgContainer.innerHTML = `<i class="fas fa-utensils text-4xl text-green-400"></i>`;
+    modalImgContainer.innerHTML = `<i class="fas fa-utensils text-5xl text-[#1b7a3d] dark:text-green-400"></i>`;
   }
 
   document.getElementById('modalTitle').innerText = item.name;
